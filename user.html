@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Dashboard | CareFlow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="app-shell">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <a class="brand" href="index.html">
+                ✚ Care<span>Flow</span>
+            </a>
+
+            <div class="side-label">PATIENT</div>
+
+            <nav>
+                <a class="active" href="user.html">
+                    ▦ Dashboard
+                </a>
+
+                <a href="doctors.html">
+                    ⌕ Find Doctors
+                </a>
+
+                <a href="book.html">
+                    ＋ Book Appointment
+                </a>
+
+                <a href="appointments.html">
+                    ◷ My Appointments
+                </a>
+
+                <a href="records.html">
+                    ▤ Patient Records
+                </a>
+
+                <a href="telehealth.html">
+                    ◉ Virtual Visits
+                </a>
+            </nav>
+
+            <div class="side-bottom">
+
+                <a href="index.html">⌂ Home</a>
+
+                <button onclick="logout()">
+                    ↪ Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- Main Dashboard -->
+        <main class="dash-main">
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-top">
+
+                <a class="brand" href="index.html">
+                    ✚ Care<span>Flow</span>
+                </a>
+
+                <button onclick="logout()">
+                    Logout
+                </button>
+
+            </div>
+
+            <!-- Dashboard Header -->
+            <header class="dash-header">
+
+                <div>
+
+                    <span class="eyebrow">PATIENT DASHBOARD</span>
+
+                    <h1 id="welcomeUser">
+                        Good morning 👋
+                    </h1>
+
+                    <p>
+                        Manage your healthcare journey from one place.
+                    </p>
+
+                </div>
+
+                <a class="btn btn-primary" href="book.html">
+                    + Book Appointment
+                </a>
+
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+
+                <!-- Upcoming Appointment -->
+                <section class="appointment-main">
+
+                    <div class="card-title">
+
+                        <div>
+                            <span class="eyebrow">NEXT APPOINTMENT</span>
+                            <h2>Upcoming visit</h2>
+                        </div>
+
+                        <span id="upcomingStatus" class="pill success">
+                            Confirmed
+                        </span>
+
+                    </div>
+
+                    <div id="nextAppointment" class="next-appt"></div>
+
+                    <!-- Appointment Journey -->
+                    <div class="journey">
+
+                        <h3>Appointment Journey</h3>
+
+                        <div class="journey-line">
+
+                            <div class="journey-step done">
+                                <b>✓</b>
+                                <span>Booked</span>
+                            </div>
+
+                            <div class="journey-step done">
+                                <b>✓</b>
+                                <span>Confirmed</span>
+                            </div>
+
+                            <div class="journey-step current">
+                                <b>●</b>
+                                <span>Upcoming</span>
+                            </div>
+
+                            <div class="journey-step">
+                                <b>○</b>
+                                <span>Check-in</span>
+                            </div>
+
+                            <div class="journey-step">
+                                <b>○</b>
+                                <span>Completed</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Quick Actions -->
+                <aside class="quick-card">
+
+                    <h3>Quick actions</h3>
+
+                    <a href="doctors.html">
+                        🩺
+                        <span>
+                            <b>Find a Doctor</b>
+                            <small>Browse specialists</small>
+                        </span>
+                        →
+                    </a>
+
+                    <a href="book.html">
+                        📅
+                        <span>
+                            <b>Book Appointment</b>
+                            <small>Choose a convenient slot</small>
+                        </span>
+                        →
+                    </a>
+
+                    <a href="appointments.html">
+                        ◷
+                        <span>
+                            <b>My Appointments</b>
+                            <small>View and manage visits</small>
+                        </span>
+                        →
+                    </a>
+
+                    <a href="records.html">
+                        ▤
+                        <span>
+                            <b>Patient Records</b>
+                            <small>Keep personal visit notes</small>
+                        </span>
+                        →
+                    </a>
+
+                    <a href="telehealth.html">
+                        ◉
+                        <span>
+                            <b>Virtual Visits</b>
+                            <small>Open a demo consultation room</small>
+                        </span>
+                        →
+                    </a>
+
+                </aside>
+
+            </div>
+
+            <!-- Care Passport -->
+            <section class="care-passport">
+
+                <div class="passport-head">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            YOUR VISIT, MADE EASIER
+                        </span>
+
+                        <h2>
+                            Care Passport <span>✦</span>
+                        </h2>
+
+                        <p>
+                            A simple checklist to help you feel prepared
+                            before your appointment.
+                        </p>
+
+                    </div>
+
+                    <div class="passport-stamp">
+                        CF
+                        <br>
+                        <small>VISIT READY</small>
+                    </div>
+
+                </div>
+
+                <!-- Checklist Progress -->
+                <div class="passport-progress">
+
+                    <div>
+                        <b id="passportProgressText">
+                            0 of 4 ready
+                        </b>
+
+                        <span id="passportProgressPercent">
+                            0%
+                        </span>
+                    </div>
+
+                    <div class="progress-track">
+                        <span id="passportProgressBar"></span>
+                    </div>
+
+                </div>
+
+                <!-- Checklist Items -->
+                <div class="passport-checklist" id="passportChecklist">
+
+                    <label class="passport-item">
+
+                        <input type="checkbox" value="id">
+
+                        <span class="passport-check-icon">▣</span>
+
+                        <span>
+                            <b>Keep an ID ready</b>
+                            <small>
+                                Bring an identification document if your
+                                clinic requires one.
+                            </small>
+                        </span>
+
+                    </label>
+
+                    <label class="passport-item">
+
+                        <input type="checkbox" value="reports">
+
+                        <span class="passport-check-icon">▤</span>
+
+                        <span>
+                            <b>Previous reports</b>
+                            <small>
+                                Carry relevant reports or test results
+                                you already have.
+                            </small>
+                        </span>
+
+                    </label>
+
+                    <label class="passport-item">
+
+                        <input type="checkbox" value="medications">
+
+                        <span class="passport-check-icon">＋</span>
+
+                        <span>
+                            <b>Medication list</b>
+                            <small>
+                                Write down medicines or supplements
+                                you currently take.
+                            </small>
+                        </span>
+
+                    </label>
+
+                    <label class="passport-item">
+
+                        <input type="checkbox" value="timing">
+
+                        <span class="passport-check-icon">◷</span>
+
+                        <span>
+                            <b>Check your appointment time</b>
+                            <small>
+                                Plan your travel and arrive a little early.
+                            </small>
+                        </span>
+
+                    </label>
+
+                </div>
+
+                <!-- Checklist Footer -->
+                <div class="passport-footer">
+
+                    <span>
+                        ✓ Your checklist is saved in this browser.
+                    </span>
+
+                    <button
+                        class="btn btn-outline"
+                        type="button"
+                        onclick="resetCarePassport()">
+
+                        Reset checklist
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- Wellness Note -->
+            <section class="wellness-note">
+
+                <div class="wellness-symbol">✦</div>
+
+                <div>
+
+                    <span class="eyebrow">A LITTLE REMINDER</span>
+
+                    <h3>Small steps make visits smoother.</h3>
+
+                    <p>
+                        Keep your appointment details handy and contact
+                        the clinic directly if your plans change.
+                        CareFlow is an appointment demo, not a medical
+                        advice service.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- Statistics -->
+            <section class="section-mini">
+
+                <div class="section-title">
+                    <h2>At a glance</h2>
+                </div>
+
+                <div class="mini-stats">
+
+                    <div>
+                        <b id="totalAppts">0</b>
+                        <span>Total appointments</span>
+                    </div>
+
+                    <div>
+                        <b id="upcomingCount">0</b>
+                        <span>Upcoming</span>
+                    </div>
+
+                    <div>
+                        <b id="completedCount">0</b>
+                        <span>Completed</span>
+                    </div>
+
+                    <div>
+                        <b id="availableDoctorCount">18+</b>
+                        <span>Doctors available</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Reminder Center -->
+            <section class="reminder">
+
+                <div class="reminder-icon">🔔</div>
+
+                <div>
+
+                    <span class="eyebrow">REMINDER CENTER</span>
+
+                    <h3 id="reminderText">
+                        No upcoming appointment yet.
+                    </h3>
+
+                    <p>
+                        Keep your appointment details ready before your visit.
+                    </p>
+
+                </div>
+
+                <a href="appointments.html" class="btn btn-outline">
+                    View Details
+                </a>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/app.js"></script>
+    <script src="js/advanced.js"></script>
+
+</body>
+
+</html>

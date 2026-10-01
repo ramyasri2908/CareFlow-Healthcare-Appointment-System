@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Records | CareFlow</title>
+
+    <!-- Common CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="app-shell">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a class="brand" href="index.html">
+                ✚ Care<span>Flow</span>
+            </a>
+
+            <div class="side-label">PATIENT MODULE</div>
+
+            <nav>
+                <a href="user.html">▦ Dashboard</a>
+                <a href="doctors.html">⌕ Find Doctors</a>
+                <a href="book.html">＋ Book Appointment</a>
+                <a href="appointments.html">◷ My Appointments</a>
+                <a class="active" href="records.html">▤ Patient Records</a>
+                <a href="telehealth.html">◉ Virtual Visits</a>
+            </nav>
+
+            <div class="side-bottom">
+                <a href="index.html">⌂ Home</a>
+                <button onclick="logout()">↪ Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <main class="dash-main">
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-top">
+                <a class="brand" href="index.html">
+                    ✚ Care<span>Flow</span>
+                </a>
+
+                <button onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Page Header -->
+            <header class="dash-header">
+                <div>
+                    <span class="eyebrow">PERSONAL HEALTH ORGANIZER</span>
+
+                    <h1>My patient records</h1>
+
+                    <p>
+                        Keep a simple personal summary ready for your next visit.
+                    </p>
+                </div>
+
+                <span class="admin-badge">
+                    PRIVATE TO THIS BROWSER
+                </span>
+            </header>
+
+            <!-- Patient Records Layout -->
+            <div class="records-layout">
+
+                <!-- Add or Edit Record Form -->
+                <section class="form-card">
+                    <h2 id="recordFormTitle">Add a personal record</h2>
+
+                    <p>
+                        Use this for demo data only.
+                        It is not connected to a clinic.
+                    </p>
+
+                    <form id="recordForm">
+
+                        <!-- Hidden Record ID -->
+                        <input type="hidden" id="recordId">
+
+                        <!-- Record Title -->
+                        <label>
+                            Record title
+                            <input
+                                type="text"
+                                id="recordTitle"
+                                required
+                                placeholder="e.g. Recent check-up"
+                            >
+                        </label>
+
+                        <!-- Record Type -->
+                        <label>
+                            Record type
+                            <select id="recordType">
+                                <option>Visit summary</option>
+                                <option>Allergy note</option>
+                                <option>Medication list</option>
+                                <option>Test / report note</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+
+                        <!-- Record Date -->
+                        <label>
+                            Date
+                            <input
+                                type="date"
+                                id="recordDate"
+                                required
+                            >
+                        </label>
+
+                        <!-- Record Notes -->
+                        <label>
+                            Notes
+                            <textarea
+                                id="recordNotes"
+                                rows="4"
+                                required
+                                placeholder="Add a short note for your own reference"
+                            ></textarea>
+                        </label>
+
+                        <!-- Save Record Button -->
+                        <button
+                            class="btn btn-primary full"
+                            type="submit"
+                        >
+                            Save Record
+                        </button>
+
+                        <!-- Cancel Edit Button -->
+                        <button
+                            class="btn btn-outline full hidden"
+                            id="cancelRecordEdit"
+                            type="button"
+                        >
+                            Cancel edit
+                        </button>
+
+                        <!-- Form Feedback Message -->
+                        <div
+                            id="recordMsg"
+                            class="form-msg"
+                            aria-live="polite"
+                        ></div>
+
+                    </form>
+                </section>
+
+                <!-- Saved Records Panel -->
+                <section class="records-panel">
+
+                    <div class="section-title">
+                        <div>
+                            <span class="eyebrow">YOUR RECORD LIBRARY</span>
+                            <h2>Saved notes</h2>
+                        </div>
+
+                        <span id="recordCount" class="pill success">
+                            0 records
+                        </span>
+                    </div>
+
+                    <!-- Records Will Be Displayed Here -->
+                    <div id="recordList" class="record-list"></div>
+
+                </section>
+            </div>
+
+            <!-- Wellness Reminder -->
+            <section class="wellness-note">
+                <div class="wellness-symbol">✦</div>
+
+                <div>
+                    <h3>Bring relevant information to your appointment</h3>
+
+                    <p>
+                        For this academic demo, records are stored in this
+                        browser only. Do not enter real or sensitive medical
+                        information.
+                    </p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/app.js"></script>
+    <script src="js/advanced.js"></script>
+
+</body>
+</html>

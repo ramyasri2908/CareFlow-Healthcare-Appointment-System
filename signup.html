@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | CareFlow</title>
+
+    <!-- Common CSS stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="auth-page">
+
+    <div class="auth-wrap">
+
+        <!-- Brand and Navigation -->
+        <div class="auth-brand">
+            <a class="brand" href="index.html">
+                ✚ Care<span>Flow</span>
+            </a>
+
+            <a href="index.html">← Back to home</a>
+        </div>
+
+        <div class="auth-grid">
+
+            <!-- Signup Information Section -->
+            <div class="auth-info">
+                <span class="eyebrow">PATIENT ACCOUNT</span>
+
+                <h1>Start your simpler healthcare journey.</h1>
+
+                <p>
+                    Create an account to find doctors, book appointments
+                    and manage your visits.
+                </p>
+
+                <div class="info-list">
+                    <span>✓ Easy appointment booking</span>
+                    <span>✓ Reschedule or cancel</span>
+                    <span>✓ Appointment journey tracking</span>
+                </div>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="form-card">
+                <h2>Create account</h2>
+                <p>All fields are required.</p>
+
+                <form id="signupForm">
+
+                    <!-- Full Name -->
+                    <label>
+                        Full Name
+                        <input
+                            id="name"
+                            type="text"
+                            required
+                            placeholder="Enter your full name"
+                        >
+                    </label>
+
+                    <!-- Email -->
+                    <label>
+                        Email
+                        <input
+                            id="email"
+                            type="email"
+                            required
+                            placeholder="you@example.com"
+                        >
+                    </label>
+
+                    <!-- Phone Number -->
+                    <label>
+                        Phone
+                        <input
+                            id="phone"
+                            type="tel"
+                            required
+                            pattern="[0-9]{10}"
+                            placeholder="10-digit phone number"
+                        >
+                    </label>
+
+                    <!-- Password -->
+                    <label>
+                        Password
+                        <input
+                            id="password"
+                            type="password"
+                            minlength="6"
+                            required
+                            placeholder="Minimum 6 characters"
+                        >
+                    </label>
+
+                    <!-- Confirm Password -->
+                    <label>
+                        Confirm Password
+                        <input
+                            id="confirm"
+                            type="password"
+                            required
+                            placeholder="Re-enter password"
+                        >
+                    </label>
+
+                    <!-- Submit Button -->
+                    <button
+                        class="btn btn-primary full"
+                        type="submit"
+                    >
+                        Create Account →
+                    </button>
+
+                </form>
+
+                <!-- Form Success/Error Message -->
+                <div id="formMsg" class="form-msg"></div>
+
+                <!-- Login Link -->
+                <p class="form-foot">
+                    Already have an account?
+                    <a href="login.html">Login</a>
+                </p>
+
+                <!-- Admin Demo Credentials -->
+                <p class="demo-note">
+                    Admin demo: use
+                    <b>admin@careflow.com</b> /
+                    <b>admin123</b>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript Functionality -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
